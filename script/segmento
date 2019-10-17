@@ -1,5 +1,5 @@
 Segmento[p1_,p2_]:=Module[{i,j,return},
-	return = -1;
+	return = {};
 	If[p1 == p2,	
 		Return[1]
 	,
@@ -20,12 +20,12 @@ Segmento[p1_,p2_]:=Module[{i,j,return},
 					Print[j];
 					Print[Length[p1]];
 					If[ j == Length[p1],
-						return = i+1;
+						AppendTo[return,i+1]
 						Break[];
 					];
 				];
 			];
-			If[return == -1,
+			If[return == {},
 			   Return[False];,
 			   Return[return];
 			]
@@ -35,7 +35,7 @@ Segmento[p1_,p2_]:=Module[{i,j,return},
 
 
 
-pr={d,d,d}
-pal = {d,d,d}
+pr={a,b}
+pal = {a,b,d,d,d,a,b}
 
 Segmento[pr,pal]
