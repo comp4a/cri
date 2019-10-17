@@ -1,0 +1,41 @@
+Segmento[p1_,p2_]:=Module[{i,j,return},
+	return = -1;
+	If[p1 == p2,	
+		Return[1]
+	,
+		If[Length[p1] == 1,	
+			If[MemberQ[ p2, p1[[1]] ],
+				Return[ Position[ p2, p1[[1]] ][[1]][[1]] ]
+			,
+				Return[False]
+			]
+		,
+			For[i = 0, i+Length[p1] <= Length[p2], i++,
+				Print["----"]
+				Print[i]
+				Print["----"]
+				For[j = 1, p1[[j]] == p2[[j+i]], j++,
+					Print[p1[[j]] ];
+					Print[p2[[j+i]] ];
+					Print[j];
+					Print[Length[p1]];
+					If[ j == Length[p1],
+						return = i+1;
+						Break[];
+					];
+				];
+			];
+			If[return == -1,
+			   Return[False];,
+			   Return[return];
+			]
+		]
+	]
+]
+
+
+
+pr={d,d,d}
+pal = {d,d,d}
+
+Segmento[pr,pal]
